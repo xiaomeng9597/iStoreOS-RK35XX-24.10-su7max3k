@@ -19,16 +19,15 @@
 / {
 	model = "BDY-G98 NAS";
 	compatible = "bdy,g98-nas", "rockchip,rk3588";
-	eth_order = "fe1b0000.ethernet,fe1c0000.ethernet,0003:31:00.0,0002:21:00.0";
+	eth_order = "fe1c0000.ethernet,0003:31:00.0,0002:21:00.0";
 
 	aliases {
 		mmc0 = &sdhci;
 		mmc1 = &sdmmc;
 		mmc2 = &sdio;
-		ethernet0 = &gmac0;
-		ethernet1 = &gmac1;
-		ethernet2 = &pcie_eth2;
-		ethernet3 = &pcie_eth3;
+		ethernet0 = &gmac1;
+		ethernet1 = &pcie_eth2;
+		ethernet2 = &pcie_eth3;
 	};
 
 	chosen {
@@ -901,7 +900,7 @@
 	pinctrl-names = "default";
 	snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
 	snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
-	status = "okay";
+	status = "disabled";
 
 	fixed-link {
 		speed = <1000>;
@@ -1134,7 +1133,7 @@
 	switch@1d {
 		compatible = "motorcomm,yt9215";
 		reg = <0x1d>;
-		status = "okay";
+		status = "disabled";
 		dsa,member = <1 0>;
 		motorcomm,bdy-g98-led-profile;
 
