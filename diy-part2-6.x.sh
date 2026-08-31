@@ -64,7 +64,7 @@ ls target/linux/generic/files
 cp -f $GITHUB_WORKSPACE/configfiles/driver/999-01-net-dsa-add-yt921x-header-defs.patch target/linux/rockchip/patches-6.6/999-01-net-dsa-add-yt921x-header-defs.patch
 
 
-cp -f $GITHUB_WORKSPACE/configfiles/packages/204-01-disk-part_dos-reject-GPT-protective-MBR.patch /istoreos-istoreos-24.10/package/boot/uboot-rockchip/patches/204-01-disk-part_dos-reject-GPT-protective-MBR.patch
+cp -f $GITHUB_WORKSPACE/configfiles/packages/204-01-disk-part_dos-reject-GPT-protective-MBR.patch package/boot/uboot-rockchip/patches/204-01-disk-part_dos-reject-GPT-protective-MBR.patch
 
 
 sed -i '/for e in \$val; do json_add_string "" "\$e"; done/c\
