@@ -84,4 +84,8 @@ sed -i '/for e in \$val; do json_add_string "" "\$e"; done/c\
 
 # cp -f $GITHUB_WORKSPACE/configfiles/stmmac_main.c.txt stmmac_main.c.txt
 # cp -f $GITHUB_WORKSPACE/configfiles/Makefile-dsa.txt target/linux/rockchip/Makefile
+
+
+cp -f $GITHUB_WORKSPACE/configfiles/dts/uboot/rk3588-easepi-u-boot.dtsi package/boot/uboot-rockchip/src/arch/arm/dts/rk3588-easepi-u-boot.dtsi
+cp -f $GITHUB_WORKSPACE/configfiles/dts/uboot/easepi-rk3588_defconfig package/boot/uboot-rockchip/src/configs/easepi-rk3588_defconfig
 ls

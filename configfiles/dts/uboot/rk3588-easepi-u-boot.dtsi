@@ -1,0 +1,60 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+
+#include "rk3588s-u-boot.dtsi"
+
+/ {
+	chosen {
+		u-boot,spl-boot-order = "same-as-spl", &sdmmc, &sdhci, &sata0;
+	};
+
+	adc-keys {
+		compatible = "adc-keys";
+		io-channels = <&saradc 1>;
+		io-channel-names = "buttons";
+		keyup-threshold-microvolt = <1800000>;
+		u-boot,dm-pre-reloc;
+		status = "okay";
+
+		volumeup-key {
+			u-boot,dm-pre-reloc;
+			linux,code = <KEY_VOLUMEUP>;
+			label = "volume up";
+			press-threshold-microvolt = <1800>;
+		};
+	};
+
+};
+
+&pinctrl {
+	u-boot,dm-pre-reloc;
+	sata {
+		sata0_pm_reset: sata0-pm-reset {
+			rockchip,pins = <0 RK_PD5 RK_FUNC_GPIO &pcfg_output_high>;
+		};
+	};
+};
+
+&pipe_phy0_grf {
+	status = "okay";
+	u-boot,dm-pre-reloc;
+};
+
+&php_grf {
+	status = "okay";
+	u-boot,dm-pre-reloc;
+};
+
+&combphy0_ps {
+	pinctrl-0 = <&sata0_pm_reset>;
+	pinctrl-names = "default";
+	phy-type = <PHY_TYPE_SATA>;
+	status = "okay";
+	u-boot,dm-pre-reloc;
+	rockchip,pipe-phy-grf = <&pipe_phy0_grf>;
+};
+
+/* SATA 控制器 sata@fe210000 */
+&sata0 {
+	status = "okay";
+	u-boot,dm-pre-reloc;
+};
