@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 
 #include "rk3588s-u-boot.dtsi"
+#include <dt-bindings/input/input.h>
 
 / {
 	chosen {
