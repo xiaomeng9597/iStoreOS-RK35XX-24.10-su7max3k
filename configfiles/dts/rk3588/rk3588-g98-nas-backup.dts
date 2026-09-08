@@ -956,11 +956,19 @@
 	*/
 };
 
+&i2s1_8ch {
+	status = "disabled";
+};
+
 /* ===== UART ===== */
 
 &uart2 {
 	pinctrl-0 = <&uart2m0_xfer>;
 	status = "okay";
+};
+
+&uart4 {
+	status = "disabled";
 };
 
 /* uart7m2 (feba0000) muxes to GPIO1_PB4/PB5, which conflicts with
